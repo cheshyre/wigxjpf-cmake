@@ -21,7 +21,9 @@
 #ifndef __WIGXJPF_CONFIG_H__
 #define __WIGXJPF_CONFIG_H__
 
+#ifndef CMAKE_BUILD_SYSTEM
 #include "wigxjpf_auto_config.h"
+#endif
 
 /* Generate code for 'long double' results. */
 
