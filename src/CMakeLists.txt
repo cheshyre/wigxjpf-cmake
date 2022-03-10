@@ -26,8 +26,10 @@ target_compile_definitions(
 
 target_include_directories(
     wigxjpf
+    PUBLIC
+    $<BUILD_INTERFACE:${WIGXJPF_ROOT_DIR}/inc>
+    $<INSTALL_INTERFACE:include>
     PRIVATE
-    "${WIGXJPF_ROOT_DIR}/inc"
     "${WIGXJPF_ROOT_DIR}/cfg"
 )
 
@@ -86,8 +88,10 @@ if(HAS_FLOAT128)
 
     target_include_directories(
         wigxjpf_quadmath
+        PUBLIC
+        $<BUILD_INTERFACE:${WIGXJPF_ROOT_DIR}/inc>
+        $<INSTALL_INTERFACE:include>
         PRIVATE
-        "${WIGXJPF_ROOT_DIR}/inc"
         "${WIGXJPF_ROOT_DIR}/cfg"
     )
 
