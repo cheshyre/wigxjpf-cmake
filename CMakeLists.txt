@@ -25,6 +25,8 @@ endif()
 
 set(WIGXJPF_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 
+find_package(OpenMP REQUIRED)
+
 include(cmake/AutoConfigureWIGXJPF.cmake)
 add_subdirectory(cfg)
 add_subdirectory(src)
