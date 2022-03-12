@@ -6,6 +6,8 @@ project(
     1.11
 )
 
+option(WIGXJPF_BUILD_BINARIES "Build binaries" OFF)
+
 # Determine if WIGXJPF is built as a subproject (using add_subdirectory)
 # or if it is the main project.
 if(NOT DEFINED WIGXJPF_MAIN_PROJECT)
@@ -23,12 +25,20 @@ if(WIGXJPF_MAIN_PROJECT AND NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
+if(WIGXJPF_MAIN_PROJECT)
+  add_compile_options("-Wall" "-Wextra" "-Werror" "$<$<CONFIG:RELEASE>:-O3>")
+endif()
+
 set(WIGXJPF_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+
 
 include(cmake/AutoConfigureWIGXJPF.cmake)
 add_subdirectory(cfg)
 add_subdirectory(src)
-add_subdirectory(example)
+if(WIGXJPF_BUILD_BINARIES)
+  find_package(OpenMP REQUIRED)
+  add_subdirectory(example)
+endif()
 
 install(
     EXPORT wigxjpf-targets

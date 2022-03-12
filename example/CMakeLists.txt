@@ -7,7 +7,7 @@ target_link_libraries(cfail wigxjpf)
 target_include_directories(cfail PRIVATE ${WIGXJPF_ROOT_DIR}/inc)
 
 add_executable(cthreadedsimple cthreadedsimple.c)
-target_link_libraries(cthreadedsimple wigxjpf)
+target_link_libraries(cthreadedsimple wigxjpf OpenMP::OpenMP_C)
 target_include_directories(cthreadedsimple PRIVATE ${WIGXJPF_ROOT_DIR}/inc)
 
 add_executable(wigxjpf_bin wigxjpf.c)
