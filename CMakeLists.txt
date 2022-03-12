@@ -6,7 +6,7 @@ project(
     1.11
 )
 
-option(WIGXJPF_BUILD_BINARIES "Build binaries" ON)
+option(WIGXJPF_BUILD_BINARIES "Build binaries" OFF)
 
 # Determine if WIGXJPF is built as a subproject (using add_subdirectory)
 # or if it is the main project.
