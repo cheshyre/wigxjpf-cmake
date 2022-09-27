@@ -3,7 +3,7 @@ include(CMakePushCheckState)
 
 cmake_push_check_state() # Save variables
 set(CMAKE_REQUIRED_FLAGS -Werror)
-set(CMAKE_REQUIRED_LIBRARIES m quadmath)
+set(CMAKE_REQUIRED_LIBRARIES m)
 check_c_source_compiles("
     #include <math.h>
     int main() {
@@ -18,6 +18,7 @@ check_c_source_compiles("
     "
     HAS_LONG_DOUBLE
 )
+set(CMAKE_REQUIRED_LIBRARIES quadmath)
 check_c_source_compiles("
     #include \"quadmath.h\"
     int main() {
@@ -33,6 +34,7 @@ check_c_source_compiles("
     "
     HAS_FLOAT128
 )
+set(CMAKE_REQUIRED_LIBRARIES "")
 check_c_source_compiles("
     __thread int global = 0;
     int main() {
